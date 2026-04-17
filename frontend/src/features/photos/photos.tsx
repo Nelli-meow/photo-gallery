@@ -42,9 +42,7 @@ const Photos = () => {
         <div className="grid grid-cols-3">
           {photos.map((photo) => (
             <div key={photo._id} className="container mx-auto px-4 mb-5">
-              <PhotosCardItem username={photo.username} title={photo.title} image={photo.image} _id={photo._id}
-                              displayName={photo.username ? photo.username.displayName : 'Unknown User'}
-                              onDelete={onDelete} onOpen={onOpenWindow}/>
+              <PhotosCardItem username={photo.username} title={photo.title} image={photo.image} _id={photo._id} displayName={photo.username ? photo.username.displayName : 'Unknown User'} onDelete={onDelete} onOpen={onOpenWindow}/>
             </div>
           ))}
         </div>
