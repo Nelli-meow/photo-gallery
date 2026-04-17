@@ -38,6 +38,7 @@ const Photos = () => {
         <PreLoader/>
       ) : photos.length === 0 ? (
         <p className="rounded-xl bg-slate-50 p-6 text-center text-slate-500">No photos here yet :(</p>
+
       ) : (
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {photos.map((photo) => (
