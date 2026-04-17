@@ -57,11 +57,11 @@ const PhotoForm: React.FC<Props> = ({onSubmit}) => {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-6 bg-white shadow-lg rounded-lg p-6">
-      <h2 className="text-2xl font-semibold text-center mb-5">Add New Photo</h2>
+    <div className="mx-auto mt-3 max-w-lg rounded-2xl border border-white/70 bg-white/95 p-6 shadow-xl shadow-slate-200/80">
+      <h2 className="mb-5 text-center text-2xl font-semibold text-slate-800">Add New Photo</h2>
       <form onSubmit={onSubmitPhoto} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="name" className="mb-1 block font-medium text-slate-700">
             Photo`s title
           </label>
           <input
@@ -72,11 +72,11 @@ const PhotoForm: React.FC<Props> = ({onSubmit}) => {
             onChange={inputChangeHandler}
             required
             placeholder="Enter title"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border border-slate-200 px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-300"
           />
         </div>
         <div>
-          <label htmlFor="photo" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="photo" className="mb-1 block font-medium text-slate-700">
             Photo
           </label>
 
@@ -93,7 +93,7 @@ const PhotoForm: React.FC<Props> = ({onSubmit}) => {
         </div>
         <button
           type="submit"
-          className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition"
+          className="w-full rounded-lg bg-rose-500 px-4 py-2 font-bold text-white transition hover:bg-rose-600"
         >
           Add Photo
         </button>

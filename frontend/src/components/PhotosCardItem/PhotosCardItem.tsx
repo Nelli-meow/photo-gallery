@@ -22,27 +22,27 @@ const PhotosCardItem: React.FC<PhotoProps> = ({username, image, _id, title, disp
   const user = useAppSelector(selectUser);
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg h-full flex flex-col justify-between">
-      <Button onClick={() => onOpen(_id, image || '', title)}>
-        <img className="rounded-t-lg" src={imageSrc} alt={title}/>
+    <div className="h-full overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-md transition hover:-translate-y-0.5 hover:shadow-xl">
+      <Button onClick={() => onOpen(_id, image || '', title)} className="!block !w-full !p-0">
+        <img className="h-56 w-full rounded-t-2xl object-cover" src={imageSrc} alt={title}/>
       </Button>
-      <div className="p-5 flex flex-col">
-        <h5 className="mb-2 text-xl font-bold tracking-tight text-blue-900">
+      <div className="flex flex-col p-5">
+        <h5 className="mb-2 text-xl font-bold tracking-tight text-slate-800">
           {title}
         </h5>
 
-        <div className="flex flex-row align-items-center justify-between">
-          <div className="flex flex-wrap justify-between items-center">
+        <div className="mt-2 flex flex-row items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center justify-between">
             <a
               href={`/photos/${username._id}`}
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-fuchsia-200 rounded-lg hover:bg-fuchsia-300 focus:ring-4 focus:outline-none focus:ring-fuchsia-300 dark:bg-fuchsia-400 dark:hover:bg-fuchsia-300 dark:focus:ring-fuchsia-900 transition-all duration-300"
+              className="inline-flex items-center rounded-full bg-rose-100 px-3 py-2 text-sm font-medium text-rose-700 transition-all duration-300 hover:bg-rose-200"
             >
               By: {displayName}
             </a>
           </div>
           {user && (user.role === 'admin' || user._id === username._id) && (
             <>
-              <button onClick={() => onDelete(_id)} className="font-medium rounded text-sm px-5 py-2.5 text-center text-white bg-red-400 hover:bg-red-800 cursor-pointer transition-all duration-300">
+              <button onClick={() => onDelete(_id)} className="cursor-pointer rounded-full bg-red-500 px-4 py-2 text-center text-sm font-medium text-white transition-all duration-300 hover:bg-red-600">
                 delete photo
               </button>
             </>

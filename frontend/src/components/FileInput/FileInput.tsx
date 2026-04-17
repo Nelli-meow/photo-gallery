@@ -39,7 +39,7 @@ const FileInput: React.FC<FileInputProps> = ({name, label, onGetFile}) => {
 
       <div className="flex items-center space-x-2">
         <input
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-100 cursor-pointer"
+          className="w-full cursor-pointer rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-slate-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-300"
           value={fileName}
           placeholder={label}
           onClick={activateInput}
@@ -48,7 +48,7 @@ const FileInput: React.FC<FileInputProps> = ({name, label, onGetFile}) => {
         <button
           type="button"
           onClick={activateInput}
-          className="bg-yellow-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+          className="rounded-lg bg-slate-800 px-4 py-2 font-bold whitespace-nowrap text-white transition hover:bg-slate-700"
         >
           Add Photo
         </button>

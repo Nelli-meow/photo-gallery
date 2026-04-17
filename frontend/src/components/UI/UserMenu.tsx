@@ -48,7 +48,9 @@ const UserMenu: React.FC<Props> = ({user}) => {
     <>
       <Button
         onClick={handleClick}
-        color="inherit">
+        color="inherit"
+        className="!rounded-full !bg-white/80 !px-3 !py-1 !text-slate-700 !normal-case !shadow-sm hover:!bg-white"
+      >
         Hello, {user.displayName}!
         <img src={imageSrc} className="avatar ms-3" alt={user.email}/>
       </Button>

@@ -43,30 +43,30 @@ const UsersPhotos = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-5">
+    <div className="mx-auto max-w-6xl rounded-2xl border border-white/80 bg-white/90 p-5 shadow-xl shadow-slate-200/70 md:p-6">
       {isLoading ? (
         <PreLoader/>
       ) : userPhotos.length === 0 ? (
-        <p className="text-center">No photos here yet :(</p>
+        <p className="rounded-xl bg-slate-50 p-6 text-center text-slate-500">No photos here yet :(</p>
       ) : (
         <>
-          <div className="flex justify-between items-center mb-5">
+          <div className="mb-5 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
             {user?.displayName === userPhotos[0]?.username.displayName && (
-              <h3 className="text-center text-3xl my-5">{user.displayName} gallery</h3>
+              <h3 className="my-1 text-3xl font-bold tracking-tight text-slate-800">{user.displayName} gallery</h3>
             )}
             {user?._id === id && (
               <button
                 onClick={handlePhoto}
-                className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                className="relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-rose-500 to-pink-500 p-0.5 text-sm font-medium text-white transition hover:shadow-md focus:outline-none focus:ring-4 focus:ring-rose-200">
               <span
-                className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">Add new Photo</span>
+                className="relative rounded-md bg-white px-5 py-2.5 text-rose-600 transition-all ease-in duration-75 hover:bg-transparent hover:text-white">Add new Photo</span>
               </button>
             )}
           </div>
 
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {userPhotos.map((photo) => (
-              <div key={photo._id} className="container mx-auto px-4 mb-5">
+              <div key={photo._id}>
                 <PhotosCardItem
                   _id={photo._id}
                   image={photo.image}

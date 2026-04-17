@@ -15,21 +15,23 @@ const App = () => {
   const user = useAppSelector(selectUser);
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-indigo-50 text-slate-800">
       <Header/>
-      <Routes>
-        <Route path="/" element={<MainPage/>}/>
-        <Route path="/register" element={<RegisterPage/>}/>
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/photos/:id" element={<UsersPhotos/>}/>
-        <Route path="*" element={<p className="text-center">Page is not  found</p>} />
-        <Route path="/photoCards/new" element={
-          <ProtectedRoute isaAllowed={!!user}>
-            <NewPhoto/>
-          </ProtectedRoute>
-        } />
-      </Routes>
-    </>
+      <main className="container mx-auto px-4 py-6 md:py-8">
+        <Routes>
+          <Route path="/" element={<MainPage/>}/>
+          <Route path="/register" element={<RegisterPage/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/photos/:id" element={<UsersPhotos/>}/>
+          <Route path="*" element={<p className="text-center text-lg font-medium">Page is not found</p>} />
+          <Route path="/photoCards/new" element={
+            <ProtectedRoute isaAllowed={!!user}>
+              <NewPhoto/>
+            </ProtectedRoute>
+          } />
+        </Routes>
+      </main>
+    </div>
   );
 };
 

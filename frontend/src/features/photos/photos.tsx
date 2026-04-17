@@ -32,16 +32,16 @@ const Photos = () => {
 
   return (
     <>
-      <h3 className="text-center text-3xl my-2">Photos</h3>
+      <h3 className="mb-5 text-center text-3xl font-bold tracking-tight text-slate-800">Photos</h3>
 
       {isLoading ? (
         <PreLoader/>
       ) : photos.length === 0 ? (
-        <p className="text-center">No photos here yet :(</p>
+        <p className="rounded-xl bg-slate-50 p-6 text-center text-slate-500">No photos here yet :(</p>
       ) : (
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {photos.map((photo) => (
-            <div key={photo._id} className="container mx-auto px-4 mb-5">
+            <div key={photo._id}>
               <PhotosCardItem username={photo.username} title={photo.title} image={photo.image} _id={photo._id} displayName={photo.username ? photo.username.displayName : 'Unknown User'} onDelete={onDelete} onOpen={onOpenWindow}/>
             </div>
           ))}

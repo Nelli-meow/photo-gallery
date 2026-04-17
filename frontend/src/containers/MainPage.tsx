@@ -3,8 +3,8 @@ import Photos from '../features/photos/photos.tsx';
 
 const MainPage = () => {
   return (
-    <div className="min-h-screen bg-gray-100 p-5">
-      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-5">
+    <div>
+      <div className="mx-auto max-w-6xl rounded-2xl border border-white/80 bg-white/90 p-5 shadow-xl shadow-slate-200/70 md:p-6">
         <Photos/>
       </div>
     </div>
