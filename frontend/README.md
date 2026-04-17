@@ -1,50 +1,87 @@
-# React + TypeScript + Vite
+# Photo Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple fullstack app:
+- Backend: Node.js + Express + MongoDB (`api`)
+- Frontend: React + Vite (`frontend`)
 
-Currently, two official plugins are available:
+## English - Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1) Requirements
+- Node.js 18+ (recommended 20+)
+- npm
+- MongoDB running locally on default URL: `mongodb://localhost/gallery`
 
-## Expanding the ESLint configuration
+### 2) Install dependencies
+Open project root and run:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+cd api && npm install
+cd ../frontend && npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 3) (Optional) Seed test data
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+cd api
+npm run seed
 ```
+
+### 4) Start backend
+
+```bash
+cd api
+npm run dev
+```
+
+Backend runs on `http://localhost:8000`.
+
+### 5) Start frontend (second terminal)
+
+```bash
+cd frontend
+npm run dev
+```
+
+Open the URL shown by Vite (usually `http://localhost:5173`).
+
+---
+
+## Русский - Запуск локально
+
+### 1) Что нужно
+- Node.js 18+ (лучше 20+)
+- npm
+- Локально запущенный MongoDB по адресу `mongodb://localhost/gallery`
+
+### 2) Установка зависимостей
+Из корня проекта:
+
+```bash
+cd api && npm install
+cd ../frontend && npm install
+```
+
+### 3) (Опционально) Заполнить тестовыми данными
+
+```bash
+cd api
+npm run seed
+```
+
+### 4) Запуск backend
+
+```bash
+cd api
+npm run dev
+```
+
+Backend будет доступен на `http://localhost:8000`.
+
+### 5) Запуск frontend (во втором терминале)
+
+```bash
+cd frontend
+npm run dev
+```
+
+Откройте URL из вывода Vite (обычно `http://localhost:5173`).
