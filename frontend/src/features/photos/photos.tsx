@@ -32,7 +32,7 @@ const Photos = () => {
 
   return (
     <>
-      <h3 className="text-center text-3xl my-5">Photos</h3>
+      <h3 className="text-center text-3xl my-2">Photos</h3>
 
       {isLoading ? (
         <PreLoader/>

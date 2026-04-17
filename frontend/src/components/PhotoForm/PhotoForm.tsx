@@ -16,6 +16,7 @@ const initialState = {
 const PhotoForm: React.FC<Props> = ({onSubmit}) => {
   const [photo, setPhoto] = useState<IPhotoMutation>(initialState);
   const navigate = useNavigate();
+  const [preview, setPreview] = useState<string | null>(null);
 
 
   const onSubmitPhoto = async (e: React.FormEvent) => {
@@ -43,11 +44,15 @@ const PhotoForm: React.FC<Props> = ({onSubmit}) => {
   const getImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {name, files} = e.target;
 
-    if (files) {
+    if (files && files[0]) {
+      const file = files[0];
+
       setPhoto(prevState => ({
         ...prevState,
-        [name]: files[0] || null,
+        [name]: file,
       }));
+
+      setPreview(URL.createObjectURL(file));
     }
   };
 
@@ -74,7 +79,17 @@ const PhotoForm: React.FC<Props> = ({onSubmit}) => {
           <label htmlFor="photo" className="block text-gray-700 font-medium mb-1">
             Photo
           </label>
+
           <FileInput name="image" label="Image" onGetFile={getImage}/>
+          {preview && (
+            <div className="mt-4 flex justify-center">
+              <img
+                src={preview}
+                alt="preview"
+                className="h-20 object-contain rounded-lg border"
+              />
+            </div>
+          )}
         </div>
         <button
           type="submit"
