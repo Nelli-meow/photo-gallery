@@ -81,10 +81,25 @@ PhotoCardRouter.post("/", imagesUpload.single('image'), auth, permit('user', 'ad
 PhotoCardRouter.delete("/:id", auth, permit('admin', 'user'), async (req, res) => {
     try {
         const {id} = req.params;
+        const expressReq = req as RequestWithUser;
+        const user = expressReq.user;
 
         const photo = await PhotoCard.findById(id);
         if (!photo) {
             res.status(404).send({message: "photo not found"});
+            return;
+        }
+
+        if (!user) {
+            res.status(401).send({error: 'User not found!'});
+            return;
+        }
+
+        const isAdmin = user.role === 'admin';
+        const isAuthor = photo.username.toString() === user._id.toString();
+
+        if (!isAdmin && !isAuthor) {
+            res.status(403).send({error: 'You can delete only your photos'});
             return;
         }
 

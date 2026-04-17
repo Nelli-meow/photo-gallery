@@ -25,8 +25,11 @@ const UsersPhotos = () => {
     }
   }, [dispatch, id]);
 
-  const onDelete = async (id: string) => {
-    await dispatch(deletePhoto(id));
+  const onDelete = async (photoId: string) => {
+    await dispatch(deletePhoto(photoId));
+    if (id) {
+      dispatch(getUsersPhotos(id));
+    }
     dispatch(fetchPhotosThunk());
   };
 

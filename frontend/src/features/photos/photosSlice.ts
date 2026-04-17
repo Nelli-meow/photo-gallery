@@ -65,8 +65,10 @@ export const PhotosSlice = createSlice({
       .addCase(deletePhoto.pending, (state) => {
         state.deletePhoto = true;
       })
-      .addCase(deletePhoto.fulfilled, (state) => {
+      .addCase(deletePhoto.fulfilled, (state, {payload: deletedId}) => {
         state.deletePhoto = false;
+        state.Photos = state.Photos.filter((photo) => photo._id !== deletedId);
+        state.userPhotos = state.userPhotos.filter((photo) => photo._id !== deletedId);
       })
       .addCase(deletePhoto.rejected, (state) => {
         state.deletePhoto = false;

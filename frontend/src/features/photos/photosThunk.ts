@@ -39,9 +39,10 @@ export const addNewPhoto = createAsyncThunk<void, { photo: IPhotoMutation, token
   }
 );
 
-export const deletePhoto = createAsyncThunk<void, string>(
+export const deletePhoto = createAsyncThunk<string, string>(
   'photoCards/deletePhoto',
   async (id)=> {
     await axiosApi.delete(`/photoCards/${id}`);
+    return id;
   }
 );
